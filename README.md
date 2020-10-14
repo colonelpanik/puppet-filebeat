@@ -300,6 +300,7 @@ Installs and configures filebeat.
 - `setup`: [Hash] Setup that will be created. Commonly used to create setup using hiera
 - `xpack`: [Hash] XPack configuration to pass to filebeat
 - `extra_validate_options`: [String] Extra command line options to pass to the configuration validation command.
+- `extra_options`: [Hash] Pass any additional options or parameters that may not be supported yet
 
 ### Private Classes
 

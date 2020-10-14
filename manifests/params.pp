@@ -31,6 +31,7 @@ class filebeat::params {
   $conf_template            = "${module_name}/pure_hash.yml.erb"
   $disable_config_test      = false
   $xpack                    = undef
+  $extra_config             = {}
   $systemd_override_dir     = '/etc/systemd/system/filebeat.service.d'
   $systemd_beat_log_opts_template = "${module_name}/systemd/logging.conf.erb"
 

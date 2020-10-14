@@ -50,6 +50,7 @@
 # proxy_address [String] Proxy server to use for downloading files
 # @param xpack [Hash] Configuration items to export internal stats to a monitoring Elasticsearch cluster
 # @param extra_validate_options [String] Extra command line options to pass to the configuration validation command
+# @param extra_config [Hash] Pass any additional options or parameters that may not be supported yet
 class filebeat (
   String  $package_ensure                                             = $filebeat::params::package_ensure,
   Boolean $manage_repo                                                = $filebeat::params::manage_repo,
@@ -98,6 +99,7 @@ class filebeat (
   Optional[Variant[Stdlib::HTTPUrl, Stdlib::HTTPSUrl]] $proxy_address = undef, # lint:ignore:140chars
   Stdlib::Absolutepath $filebeat_path                                 = $filebeat::params::filebeat_path,
   Optional[Hash] $xpack                                               = $filebeat::params::xpack,
+  Optional[Hash] $extra_config                                        = $filebeat::params::extra_config,
 
   Integer $queue_size                                                 = 4096,
   String $registry_file                                               = 'filebeat.yml',

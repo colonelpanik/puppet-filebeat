@@ -46,6 +46,7 @@ class filebeat::config {
       'processors'        => $filebeat::processors,
       'monitoring'        => $filebeat::monitoring,
       'setup'             => $setup,
+      'extra_config'      => $filebeat::extra_config,
     })
     # Add the 'xpack' section if supported (version >= 6.1.0) and not undef
     if $filebeat::xpack and versioncmp($filebeat::package_ensure, '6.1.0') >= 0 {
@@ -76,6 +77,7 @@ class filebeat::config {
       'logging'           => $filebeat::logging,
       'runoptions'        => $filebeat::run_options,
       'processors'        => $filebeat::processors,
+      'extra_config'      => $filebeat::extra_config,
     })
     # Add the 'modules' section if supported (version >= 5.2.0)
     if versioncmp($filebeat::package_ensure, '5.2.0') >= 0 {
@@ -95,6 +97,7 @@ class filebeat::config {
     $skip_validation = false
   }
 
+  
   case $::kernel {
     'Linux'   : {
       $validate_cmd = ($filebeat::disable_config_test or $skip_validation) ? {

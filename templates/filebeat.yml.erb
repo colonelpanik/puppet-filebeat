@@ -38,6 +38,14 @@ queue_size: <%= @filebeat_config['queue_size'] %>
 max_procs: <%= @filebeat_config['max_procs'] %>
 <%- end -%>
 
+
+<%- if @filebeat_config['extra_config'].length > 0 -%>
+# Extra configuration options are defined here
+  <%- @filebeat_config['extra_config'].each_pair do |k, v| -%>
+<%= k %>: <%= v %>
+  <%- end -%>
+<%- end -%>
+
 #================================ Processors =====================================
 
 # Processors are used to reduce the number of fields in the exported event or to
